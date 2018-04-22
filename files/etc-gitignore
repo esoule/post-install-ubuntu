@@ -1,0 +1,98 @@
+# begin section managed by etckeeper (do not edit this section by hand)
+
+# new and old versions of conffiles, stored by dpkg
+*.dpkg-*
+# new and old versions of conffiles, stored by ucf
+*.ucf-*
+
+# old versions of files
+*.old
+
+# mount(8) records system state here, no need to store these
+blkid.tab
+blkid.tab.old
+
+# some other files in /etc that typically do not need to be tracked
+nologin
+ld.so.cache
+prelink.cache
+mtab
+mtab.fuselock
+.pwd.lock
+*.LOCK
+network/run
+adjtime
+lvm/cache
+lvm/archive
+X11/xdm/authdir/authfiles/*
+ntp.conf.dhcp
+.initctl
+webmin/fsdump/*.status
+webmin/webmin/oscache
+apparmor.d/cache/*
+service/*/supervise/*
+service/*/log/supervise/*
+sv/*/supervise/*
+sv/*/log/supervise/*
+*.elc
+*.pyc
+*.pyo
+init.d/.depend.*
+openvpn/openvpn-status.log
+cups/subscriptions.conf
+cups/subscriptions.conf.O
+fake-hwclock.data
+check_mk/logwatch.state
+
+# editor temp files
+*~
+.*.sw?
+.sw?
+\#*\#
+DEADJOE
+
+# end section managed by etckeeper
+
+#
+#
+#
+# NOTE! Don't add files that are generated in specific
+# subdirectories here. Add them in the ".gitignore" file
+# in that subdirectory instead.
+#
+# NOTE! Please use 'git ls-files -i --exclude-standard'
+# command after changing this file, to see if there are
+# any tracked files which get ignored after the change.
+#
+
+/group-
+/gshadow-
+/passwd-
+/shadow-
+/subgid-
+/subuid-
+
+# backup files
+*~
+\#*#
+~$*
+~*
+*.bak
+*.backup
+*.log
+*.log.*
+*.old
+*.org
+*.orig
+
+# temporary files and directories
+tmp-*
+tmp.*
+tmp_*
+*.tmp
+*-tmp
+*_tmp
+
+# Exceptions to patterns above
+!/apparmor.d/abstractions/freedesktop.org
+!/apparmor.d/abstractions/user-tmp
