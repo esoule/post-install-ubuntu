@@ -10,23 +10,8 @@ main_func()
 
 	PACKAGE_LIST=""
 
-	if [ "${ubuntu_rel}" = "16.04" ] ; then
-		PACKAGE_LIST="
-${PACKAGE_LIST}
-libqt5libqgtk2
-"
-	fi
-
 	PACKAGE_LIST="
 ${PACKAGE_LIST}
-qt5-style-plugins
-kate
-kdiff3
-konsole
-krename
-krusader
-kwrite
-meld
 thunderbird
 "
 
