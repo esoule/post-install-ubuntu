@@ -12,6 +12,7 @@ main_func()
 
 	PACKAGE_LIST="
 ${PACKAGE_LIST}
+numlockx
 thunderbird
 "
 
