@@ -10,9 +10,13 @@
 # * /etc/aliases forwarding rules
 # * /etc/postfix/sender_canonical and /etc/postfix/recipient_canonical address rewriting
 
-D="$( TZ=Pacific/Auckland date --rfc-email )"
+D="$( TZ=Pacific/Auckland date '+%a, %d %b %Y %H:%M:%S %z' )"
 
-SUBJ="Postfix test / Hello / Привет / Γεια σου / שלום / வணக்கம் / ${D}"
+H="$( hostname )"
+
+CONTACT="yourcontact@example.invalid"
+
+SUBJ="Postfix test e-mail / Hello / Привет / Γεια σου / שלום / வணக்கம் / ${D}"
 
 # SUBJ="Postfix test / Hello / ${D}"
 
@@ -21,13 +25,23 @@ SUBJ_B64="$( echo -n "${SUBJ}" | base64 -w 0 )"
 sendmail -f logwatch -t <<__EOF__
 From: logwatch
 To: root
+Reply-To: ${CONTACT}
 Date: ${D}
 Subject: =?UTF-8?B?${SUBJ_B64}?=
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
 
+This is a test e-mail sent to root account at ${H} machine.
+
+You are getting this e-mail because mail for root account at
+${H} is forwarded to your e-mail address.
+
+For any questions, contact ${CONTACT}.
+
 Postfix is good to go.
+
+Multiple language tests appear below.
 
 ${SUBJ}
 
