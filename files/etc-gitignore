@@ -93,6 +93,10 @@ tmp_*
 *-tmp
 *_tmp
 
+# apt sources lists backup files
+apt/sources.list.d/*.save
+apt/*.save
+
 # Exceptions to patterns above
 !/apparmor.d/abstractions/freedesktop.org
 !/apparmor.d/abstractions/user-tmp
