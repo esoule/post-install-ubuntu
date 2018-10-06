@@ -37,8 +37,10 @@ fonts-liberation
 fonts-linuxlibertine
 fonts-noto
 fonts-roboto
+light-themes
 oxygen-cursor-theme
 oxygen-cursor-theme-extra
+ubuntu-wallpapers
 "
 
 	apt -y install ${PACKAGE_LIST}

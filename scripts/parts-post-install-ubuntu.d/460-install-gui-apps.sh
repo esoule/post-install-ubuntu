@@ -12,6 +12,8 @@ main_func()
 
 	PACKAGE_LIST="
 ${PACKAGE_LIST}
+lightdm-gtk-greeter
+lightdm-gtk-greeter-settings
 numlockx
 thunderbird
 "
