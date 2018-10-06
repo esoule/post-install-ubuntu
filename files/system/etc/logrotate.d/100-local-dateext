@@ -1,0 +1,4 @@
+# see "man logrotate" for details
+
+# Archive old versions of log files adding a daily extension like YYYYMMDD
+dateext
