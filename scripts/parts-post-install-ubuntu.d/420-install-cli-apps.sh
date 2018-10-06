@@ -8,8 +8,13 @@ main_func()
 {
 	PACKAGE_LIST="
 apt-file
+htop
+lm-sensors
+ncdu
 p7zip
 p7zip-full
+pinfo
+tree
 unifdef
 unrar
 "
