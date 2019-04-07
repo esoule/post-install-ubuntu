@@ -17,6 +17,7 @@ main_func()
 	apt -y install \
 		htop \
 		lm-sensors \
+		mc \
 		ncdu \
 		p7zip \
 		p7zip-full \
