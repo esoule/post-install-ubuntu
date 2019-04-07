@@ -1,0 +1,27 @@
+#!/bin/bash
+PROJECT_HOME="$( cd "$( dirname "$0" )" && cd ../.. && pwd )"
+cd "${PROJECT_HOME}"
+source "./scripts/inc-sh/common-pre.inc.sh"
+require_root_or_exit
+
+main_func()
+{
+	sha1_ref="c4d853993e323432cb84359de2c319b9a767b729"
+
+	sha1_file="$( cat /etc/skel/.bashrc | sha1sum -b - | awk '{ print $1 }' )"
+
+	if [ "${sha1_file}" = "${sha1_ref}" ] ; then
+		./scripts/helpers/install_file_attr.sh 0644 root root /etc/skel/.bashrc ./files/system/etc/skel/.bashrc
+	fi
+
+	sha1_ref="17d380175c89fb145357edd7f1356f6274bfc762"
+
+	sha1_file="$( cat /root/.bashrc | sha1sum -b - | awk '{ print $1 }' )"
+
+	if [ "${sha1_file}" = "${sha1_ref}" ] ; then
+		./scripts/helpers/install_file_attr.sh 0644 root root /root/.bashrc ./files/system/root/.bashrc
+	fi
+}
+
+source "./scripts/inc-sh/common-run-main.inc.sh"
+source "./scripts/inc-sh/common-post.inc.sh"
