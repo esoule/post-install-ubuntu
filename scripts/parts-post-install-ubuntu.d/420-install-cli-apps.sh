@@ -27,6 +27,15 @@ main_func()
 		unrar \
 		${EMPTY}
 
+	apt -y install \
+		exfat-fuse \
+		exfat-utils \
+		${EMPTY}
+
+	apt -y install \
+		ntfs-3g \
+		${EMPTY}
+
 	true
 }
 
