@@ -6,24 +6,25 @@ require_root_or_exit
 
 main_func()
 {
-	PACKAGE_LIST="
-apt-file
-htop
-lm-sensors
-ncdu
-p7zip
-p7zip-full
-pinfo
-tree
-unifdef
-unrar
-"
+	EMPTY=""
 
-	apt -y install ${PACKAGE_LIST}
+	apt -y install apt-file
 
 	# after apt-file installation
 	apt -y update
 	apt-file update
+
+	apt -y install \
+		htop \
+		lm-sensors \
+		ncdu \
+		p7zip \
+		p7zip-full \
+		pinfo \
+		tree \
+		unifdef \
+		unrar \
+		${EMPTY}
 
 	true
 }
