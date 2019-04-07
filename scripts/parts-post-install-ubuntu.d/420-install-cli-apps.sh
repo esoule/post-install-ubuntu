@@ -36,6 +36,15 @@ main_func()
 		ntfs-3g \
 		${EMPTY}
 
+	apt -y install \
+		network-manager-vpnc \
+		vpnc \
+		${EMPTY}
+
+	apt -y install \
+		openfortivpn \
+		${EMPTY}
+
 	true
 }
 
