@@ -97,6 +97,10 @@ tmp_*
 apt/sources.list.d/*.save
 apt/*.save
 
+# CUPS backup files (extension .O, not zero)
+cups/*.O
+cups/**/*.O
+
 # Exceptions to patterns above
 !/apparmor.d/abstractions/freedesktop.org
 !/apparmor.d/abstractions/user-tmp
