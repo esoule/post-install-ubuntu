@@ -79,4 +79,6 @@ tmp_*
 # Exception
 !files/system/etc/logrotate.d
 !files/system/etc/profile.d
+!files/system/etc/skel/.bashrc
+!files/system/root/.bashrc
 !files/user/.config/

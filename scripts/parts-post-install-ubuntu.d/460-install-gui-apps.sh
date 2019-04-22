@@ -6,6 +6,8 @@ require_root_or_exit
 
 main_func()
 {
+	EMPTY=""
+
 	local ubuntu_rel="$( lsb_release --short --release )"
 
 	PACKAGE_LIST=""
@@ -19,6 +21,12 @@ thunderbird
 "
 
 	apt -y install ${PACKAGE_LIST}
+
+	apt -y install \
+		remmina \
+		remmina-plugin-rdp \
+		remmina-plugin-vnc \
+		${EMPTY}
 
 	true
 }
