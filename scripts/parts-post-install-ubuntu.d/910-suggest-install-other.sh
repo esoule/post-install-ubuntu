@@ -2,7 +2,6 @@
 PROJECT_HOME="$( cd "$( dirname "$0" )" && cd ../.. && pwd )"
 cd "${PROJECT_HOME}"
 source "./scripts/inc-sh/common-pre.inc.sh"
-require_root_or_exit
 
 main_func()
 {
@@ -10,9 +9,13 @@ main_func()
 
 	printf '\n\n\n'
 
-	echo "Run this command interactively to install lightdm"
+	echo "If you want to install lightdm, run this:"
 	echo ""
-	echo "sudo apt --no-install-recommends install lightdm"
+	echo "    sudo apt --no-install-recommends install lightdm"
+	echo ""
+	echo "If you want to install libreoffice, run this:"
+	echo ""
+	echo "    sudo apt install libreoffice"
 
 	printf '\n\n\n'
 
