@@ -17,7 +17,7 @@ oxygen5-icon-theme
 "
 	fi
 
-	if [ "${ubuntu_rel}" = "18.04" ] ; then
+	if [ "${ubuntu_rel}" = "18.04" ] || [ "${ubuntu_rel}" = "20.04" ] ; then
 		PACKAGE_LIST="
 ${PACKAGE_LIST}
 fonts-liberation2
