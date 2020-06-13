@@ -12,9 +12,9 @@ main_func()
 
 	if ! [ "${ubuntu_rel}" = "20.04" ] ; then
 		add-apt-repository --yes ppa:esoule/esrepo
-
-		add-apt-repository --yes ppa:esoule/coan
 	fi
+
+	add-apt-repository --yes ppa:esoule/coan
 
 	apt -y update
 
