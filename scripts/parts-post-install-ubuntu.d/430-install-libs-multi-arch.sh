@@ -12,10 +12,6 @@ main_func()
 
 	apt -y install libc6 libstdc++6 libgcc1 zlib1g libncurses5
 
-	if [ "${machine}" = x86_64 ] ; then
-		apt -y install libc6:i386 libstdc++6:i386 libgcc1:i386 zlib1g:i386 libncurses5:i386
-	fi
-
 	true
 }
 
