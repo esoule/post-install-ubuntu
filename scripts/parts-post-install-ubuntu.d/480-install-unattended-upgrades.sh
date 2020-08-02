@@ -6,16 +6,11 @@ require_root_or_exit
 
 main_func()
 {
-	local ubuntu_rel="$( lsb_release --short --release )"
+	EMPTY=""
 
-	PACKAGE_LIST=""
-
-	PACKAGE_LIST="
-${PACKAGE_LIST}
-unattended-upgrades
-"
-
-	apt -y install ${PACKAGE_LIST}
+	apt -y install \
+		unattended-upgrades \
+		${EMPTY}
 
 	edit_unattended_upgrade_file /etc/apt/apt.conf.d/50unattended-upgrades
 
