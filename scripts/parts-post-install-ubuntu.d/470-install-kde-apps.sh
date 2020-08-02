@@ -6,31 +6,27 @@ require_root_or_exit
 
 main_func()
 {
+	EMPTY=""
+
 	local ubuntu_rel="$( lsb_release --short --release )"
 
-	PACKAGE_LIST=""
-
+	PKG_libqt5libqgtk2=""
 	if [ "${ubuntu_rel}" = "16.04" ] ; then
-		PACKAGE_LIST="
-${PACKAGE_LIST}
-libqt5libqgtk2
-"
+		PKG_libqt5libqgtk2="libqt5libqgtk2"
 	fi
 
-	PACKAGE_LIST="
-${PACKAGE_LIST}
-qt5-style-plugins
-kdiff3
-kio-extras
-kio-extras-data
-konsole
-krename
-krusader
-kwrite
-meld
-"
-
-	apt -y install ${PACKAGE_LIST}
+	apt -y install \
+		${PKG_libqt5libqgtk2} \
+		qt5-style-plugins \
+		kdiff3 \
+		kio-extras \
+		kio-extras-data \
+		konsole \
+		krename \
+		krusader \
+		kwrite \
+		meld \
+		${EMPTY}
 
 	true
 }
