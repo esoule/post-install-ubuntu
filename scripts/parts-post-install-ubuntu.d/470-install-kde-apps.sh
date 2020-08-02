@@ -16,15 +16,18 @@ main_func()
 	fi
 
 	apt -y install \
-		${PKG_libqt5libqgtk2} \
-		qt5-style-plugins \
 		kdiff3 \
-		kio-extras \
-		kio-extras-data \
 		konsole \
 		krename \
-		krusader \
 		kwrite \
+		${EMPTY}
+
+	apt -y install \
+		${PKG_libqt5libqgtk2} \
+		qt5-style-plugins \
+		kio-extras \
+		kio-extras-data \
+		krusader \
 		${EMPTY}
 
 	true
