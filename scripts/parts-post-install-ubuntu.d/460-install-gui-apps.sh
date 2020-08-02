@@ -17,8 +17,9 @@ ${PACKAGE_LIST}
 lightdm-gtk-greeter
 lightdm-gtk-greeter-settings
 numlockx
-thunderbird
 "
+
+	# NOTE: Do not install thunderbird here. It is big, and not needed on servers
 
 	apt -y install ${PACKAGE_LIST}
 
