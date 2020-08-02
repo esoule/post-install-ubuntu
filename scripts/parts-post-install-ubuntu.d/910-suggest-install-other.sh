@@ -11,6 +11,9 @@ main_func()
 
 	echo "If you want to install lightdm, run this:"
 	echo ""
+	echo "    sudo apt install lightdm-gtk-greeter lightdm-gtk-greeter-settings \\"
+	echo "            ubuntu-wallpapers"
+	echo ""
 	echo "    sudo apt --no-install-recommends install lightdm"
 	echo ""
 	echo "If you want to install thunderbird, run this:"
