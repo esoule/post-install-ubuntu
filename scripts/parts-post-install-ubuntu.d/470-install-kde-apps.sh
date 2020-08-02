@@ -25,7 +25,6 @@ main_func()
 		krename \
 		krusader \
 		kwrite \
-		meld \
 		${EMPTY}
 
 	true
