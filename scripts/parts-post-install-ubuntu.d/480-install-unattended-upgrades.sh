@@ -35,7 +35,7 @@ edit_unattended_upgrade_file()
 	local rv=$?
 
 	if [ "${rv}" = 1 ] ; then
-		./scripts/helpers/install_file_attr.sh 0644 root root "${orig_cfg}" "${tmp_cfg}"
+		install -v -m 0644 -o root -g root "${tmp_cfg}" "${orig_cfg}"
 	fi
 
 	rm -f "${tmp_cfg}"
