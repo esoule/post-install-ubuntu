@@ -10,10 +10,8 @@ main_func()
 		return 0
 	fi
 
-	cp ./files/etc-gitignore /etc/.gitignore.tmp
+	install -v -m 0600 -o root -g root ./files/etc-gitignore /etc/.gitignore.tmp
 
-	chmod 0600 /etc/.gitignore.tmp
-	chown root:root /etc/.gitignore.tmp
 	mv /etc/.gitignore.tmp /etc/.gitignore
 
 	true
