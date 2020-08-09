@@ -6,7 +6,14 @@ require_root_or_exit
 
 main_func()
 {
-	apt -y install vim git git-man etckeeper
+	EMPTY=""
+
+	apt -y install \
+		vim \
+		git \
+		git-man \
+		etckeeper \
+		${EMPTY}
 
 	true
 }
