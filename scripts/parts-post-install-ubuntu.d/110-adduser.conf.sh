@@ -9,12 +9,9 @@ main_func()
 	local orig_cfg=/etc/adduser.conf
 	local tmp_cfg=/etc/adduser.conf.001.tmp
 
-	cp ${orig_cfg} ${tmp_cfg}
+	install -v -m 0644 -o root -g root ${orig_cfg} ${tmp_cfg}
 
 	sed -i -e 's/^\s*DIR_MODE=0[0-7][0-7][0-7]\s*$/DIR_MODE=0750/g' ${tmp_cfg}
-
-	chmod 0644 ${tmp_cfg}
-	chown root:root ${tmp_cfg}
 
 	diff -q ${orig_cfg} ${tmp_cfg} >/dev/null
 	local rv=$?
