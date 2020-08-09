@@ -6,11 +6,15 @@ require_root_or_exit
 
 main_func()
 {
-	local machine="$( uname -m )"
+	EMPTY=""
 
-	local ubuntu_rel="$( lsb_release --short --release )"
-
-	apt -y install libc6 libstdc++6 libgcc1 zlib1g libncurses5
+	apt -y install \
+		libc6 \
+		libstdc++6 \
+		libgcc1 \
+		zlib1g \
+		libncurses5 \
+		${EMPTY}
 
 	true
 }
