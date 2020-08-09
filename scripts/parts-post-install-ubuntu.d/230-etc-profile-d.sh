@@ -9,7 +9,7 @@ main_func()
 	local ubuntu_rel="$( lsb_release --short --release )"
 
 	if [ "${ubuntu_rel}" = 18.04 ] || [ "${ubuntu_rel}" = 20.04 ] ; then
-		./scripts/helpers/install_file_attr.sh 0644 root root /etc/profile.d/freetype2.sh ./files/system/etc/profile.d/freetype2.sh
+		install -v -m 0644 -o root -g root ./files/system/etc/profile.d/freetype2.sh /etc/profile.d/freetype2.sh
 	fi
 }
 
