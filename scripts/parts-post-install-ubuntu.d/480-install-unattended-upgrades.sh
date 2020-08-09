@@ -19,8 +19,11 @@ main_func()
 
 edit_unattended_upgrade_file()
 {
-	local orig_cfg="${1}"
-	local tmp_cfg="/tmp/$(basename "${1}" )"
+	local orig_cfg=
+	local tmp_cfg=
+
+	orig_cfg="${1}"
+	tmp_cfg="/tmp/$(basename "${1}" )"
 
 	cp "${orig_cfg}" "${tmp_cfg}"
 

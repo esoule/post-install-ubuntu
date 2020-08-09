@@ -8,7 +8,9 @@ main_func()
 {
 	EMPTY=""
 
-	local virt_str="$( lspci | grep -i pci | grep -o -i '\(vmware\|virtualbox\)' | head -n 1 )"
+	local virt_str=
+
+	virt_str="$( lspci | grep -i pci | grep -o -i '\(vmware\|virtualbox\)' | head -n 1 )"
 
 	if [ -z "${virt_str}" ] ; then
 		return 0

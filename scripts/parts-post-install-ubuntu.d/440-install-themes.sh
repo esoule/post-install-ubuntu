@@ -8,7 +8,9 @@ main_func()
 {
 	EMPTY=""
 
-	local ubuntu_rel="$( lsb_release --short --release )"
+	local ubuntu_rel=
+
+	ubuntu_rel="$( lsb_release --short --release )"
 
 	PKG_oxygen_icon_theme=""
 	if [ "${ubuntu_rel}" = "16.04" ] ; then
