@@ -16,17 +16,16 @@ main_func()
 
 	local tmp_cfg=/etc/ssh/sshd_config.001.tmp
 
-	cp /etc/ssh/sshd_config ${tmp_cfg}
+	install -v -m 0644 -o root -g root /etc/ssh/sshd_config "${tmp_cfg}"
 
 	if grep -q UseDNS ${tmp_cfg} ; then
 		sed -i -e 's/^\s*UseDNS\b.*/UseDNS no/' -e 's/^\s*#\s*UseDNS\b.*/UseDNS no/' ${tmp_cfg}
 	else
 		echo UseDNS no >>${tmp_cfg}
 	fi
-	chmod 0644 ${tmp_cfg}
-	chown root:root ${tmp_cfg}
 
-	mv ${tmp_cfg} /etc/ssh/sshd_config
+	install -v -m 0644 -o root -g root "${tmp_cfg}" /etc/ssh/sshd_config
+	rm "${tmp_cfg}"
 
 	systemctl --no-pager restart ssh
 
