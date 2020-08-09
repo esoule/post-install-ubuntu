@@ -10,6 +10,8 @@ main_func()
 
 	apt -y update
 
+	apt -y upgrade
+
 	true
 }
 
