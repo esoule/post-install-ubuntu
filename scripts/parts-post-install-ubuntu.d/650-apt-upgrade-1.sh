@@ -6,13 +6,9 @@ require_root_or_exit
 
 main_func()
 {
-	local ubuntu_rel="$( lsb_release --short --release )"
+	apt -y update
 
-	PACKAGE_LIST="
-libreoffice
-"
-
-	apt -y install ${PACKAGE_LIST}
+	apt -y upgrade
 
 	true
 }

@@ -37,6 +37,11 @@ main_func()
 		${EMPTY}
 
 	apt -y install \
+		network-manager-openconnect \
+		openconnect \
+		${EMPTY}
+
+	apt -y install \
 		network-manager-vpnc \
 		vpnc \
 		${EMPTY}

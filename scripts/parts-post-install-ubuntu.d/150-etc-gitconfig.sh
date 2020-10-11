@@ -6,10 +6,8 @@ require_root_or_exit
 
 main_func()
 {
-	cp ./files/etc-gitconfig /etc/gitconfig.tmp
+	install -v -m 0644 -o root -g root ./files/etc-gitconfig /etc/gitconfig.tmp
 
-	chmod 0644 /etc/gitconfig.tmp
-	chown root:root /etc/gitconfig.tmp
 	mv /etc/gitconfig.tmp /etc/gitconfig
 
 	true

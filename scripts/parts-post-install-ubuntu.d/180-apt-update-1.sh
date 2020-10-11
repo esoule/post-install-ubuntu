@@ -6,15 +6,7 @@ require_root_or_exit
 
 main_func()
 {
-	local machine="$( uname -m )"
-
-	if [ "${machine}" = x86_64 ] ; then
-		dpkg --add-architecture i386
-	fi
-
 	apt -y update
-
-	apt -y upgrade
 
 	true
 }

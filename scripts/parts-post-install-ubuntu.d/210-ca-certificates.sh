@@ -6,7 +6,11 @@ require_root_or_exit
 
 main_func()
 {
-	apt -y install ca-certificates
+	EMPTY=""
+
+	apt -y install --only-upgrade \
+		ca-certificates \
+		${EMPTY}
 
 	true
 }

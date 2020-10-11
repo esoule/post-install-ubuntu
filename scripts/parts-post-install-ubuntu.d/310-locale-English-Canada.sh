@@ -10,6 +10,11 @@ main_func()
 
 	update-locale LANG="en_CA.UTF-8" LANGUAGE="en_CA:en"
 
+	dpkg-reconfigure -f noninteractive locales
+
+	# Load apt files with translations
+	apt -y update
+
 	true
 }
 

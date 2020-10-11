@@ -8,19 +8,11 @@ main_func()
 {
 	EMPTY=""
 
-	local ubuntu_rel="$( lsb_release --short --release )"
+	# NOTE: Do not install thunderbird here. It is big, and not needed on servers
 
-	PACKAGE_LIST=""
-
-	PACKAGE_LIST="
-${PACKAGE_LIST}
-lightdm-gtk-greeter
-lightdm-gtk-greeter-settings
-numlockx
-thunderbird
-"
-
-	apt -y install ${PACKAGE_LIST}
+	apt -y install \
+		numlockx \
+		${EMPTY}
 
 	apt -y install \
 		remmina \

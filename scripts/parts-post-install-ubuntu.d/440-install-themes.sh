@@ -6,44 +6,25 @@ require_root_or_exit
 
 main_func()
 {
-	local ubuntu_rel="$( lsb_release --short --release )"
+	EMPTY=""
 
-	PACKAGE_LIST=""
+	local ubuntu_rel=
 
+	ubuntu_rel="$( lsb_release --short --release )"
+
+	PKG_oxygen_icon_theme=""
 	if [ "${ubuntu_rel}" = "16.04" ] ; then
-		PACKAGE_LIST="
-${PACKAGE_LIST}
-oxygen5-icon-theme
-"
+		PKG_oxygen_icon_theme="oxygen5-icon-theme"
+	else
+		PKG_oxygen_icon_theme="oxygen-icon-theme"
 	fi
 
-	if [ "${ubuntu_rel}" = "18.04" ] ; then
-		PACKAGE_LIST="
-${PACKAGE_LIST}
-fonts-liberation2
-fonts-noto-color-emoji
-oxygen-icon-theme
-"
-	fi
-
-	PACKAGE_LIST="
-${PACKAGE_LIST}
-breeze-icon-theme
-clearlooks-phenix-theme
-fonts-crosextra-caladea
-fonts-crosextra-carlito
-fonts-dejavu
-fonts-liberation
-fonts-linuxlibertine
-fonts-noto
-fonts-roboto
-light-themes
-oxygen-cursor-theme
-oxygen-cursor-theme-extra
-ubuntu-wallpapers
-"
-
-	apt -y install ${PACKAGE_LIST}
+	apt -y install \
+		fonts-dejavu \
+		ubuntu-wallpapers \
+		${PKG_oxygen_icon_theme} \
+		oxygen-cursor-theme \
+		${EMPTY}
 
 	true
 }

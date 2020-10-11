@@ -6,16 +6,11 @@ require_root_or_exit
 
 main_func()
 {
-	local ubuntu_rel="$( lsb_release --short --release )"
+	EMPTY=""
 
-	PACKAGE_LIST=""
-
-	PACKAGE_LIST="
-${PACKAGE_LIST}
-unattended-upgrades
-"
-
-	apt -y install ${PACKAGE_LIST}
+	apt -y install \
+		unattended-upgrades \
+		${EMPTY}
 
 	edit_unattended_upgrade_file /etc/apt/apt.conf.d/50unattended-upgrades
 
@@ -24,8 +19,11 @@ unattended-upgrades
 
 edit_unattended_upgrade_file()
 {
-	local orig_cfg="${1}"
-	local tmp_cfg="/tmp/$(basename "${1}" )"
+	local orig_cfg=
+	local tmp_cfg=
+
+	orig_cfg="${1}"
+	tmp_cfg="/tmp/$(basename "${1}" )"
 
 	cp "${orig_cfg}" "${tmp_cfg}"
 
@@ -40,7 +38,7 @@ edit_unattended_upgrade_file()
 	local rv=$?
 
 	if [ "${rv}" = 1 ] ; then
-		./scripts/helpers/install_file_attr.sh 0644 root root "${orig_cfg}" "${tmp_cfg}"
+		install -v -m 0644 -o root -g root "${tmp_cfg}" "${orig_cfg}"
 	fi
 
 	rm -f "${tmp_cfg}"

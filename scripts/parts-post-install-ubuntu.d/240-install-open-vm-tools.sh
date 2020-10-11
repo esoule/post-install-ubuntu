@@ -6,18 +6,20 @@ require_root_or_exit
 
 main_func()
 {
-	local virt_str="$( lspci | grep -i pci | grep -o -i '\(vmware\|virtualbox\)' | head -n 1 )"
+	EMPTY=""
+
+	local virt_str=
+
+	virt_str="$( lspci | grep -i pci | grep -o -i '\(vmware\|virtualbox\)' | head -n 1 )"
 
 	if [ -z "${virt_str}" ] ; then
 		return 0
 	fi
 
-	PACKAGE_LIST="
-open-vm-tools
-open-vm-tools-desktop
-"
-
-	apt -y install ${PACKAGE_LIST}
+	apt -y install \
+		open-vm-tools \
+		open-vm-tools-desktop \
+		${EMPTY}
 
 	true
 }

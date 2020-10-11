@@ -11,7 +11,9 @@ main_func()
 	sha1_file="$( cat /etc/skel/.bashrc | sha1sum -b - | awk '{ print $1 }' )"
 
 	if [ "${sha1_file}" = "${sha1_ref}" ] ; then
-		./scripts/helpers/install_file_attr.sh 0644 root root /etc/skel/.bashrc ./files/system/etc/skel/.bashrc
+		install -v -m 0644 -o root -g root \
+			./files/system/etc/skel/.bashrc \
+			/etc/skel/.bashrc
 	fi
 
 	sha1_ref="17d380175c89fb145357edd7f1356f6274bfc762"
@@ -19,7 +21,9 @@ main_func()
 	sha1_file="$( cat /root/.bashrc | sha1sum -b - | awk '{ print $1 }' )"
 
 	if [ "${sha1_file}" = "${sha1_ref}" ] ; then
-		./scripts/helpers/install_file_attr.sh 0644 root root /root/.bashrc ./files/system/root/.bashrc
+		install -v -m 0644 -o root -g root \
+			./files/system/root/.bashrc \
+			/root/.bashrc
 	fi
 }
 

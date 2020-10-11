@@ -6,14 +6,14 @@ require_root_or_exit
 
 main_func()
 {
-	PACKAGE_LIST="
-git
-git-man
-strip-nondeterminism
-coan
-"
+	EMPTY=""
 
-	apt -y install ${PACKAGE_LIST}
+	apt -y install \
+		git \
+		git-man \
+		strip-nondeterminism \
+		coan \
+		${EMPTY}
 
 	true
 }
