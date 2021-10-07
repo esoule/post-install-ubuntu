@@ -22,6 +22,8 @@ main_func()
 		p7zip \
 		p7zip-full \
 		pinfo \
+		screen \
+		tmux \
 		tree \
 		unrar \
 		${EMPTY}
