@@ -23,9 +23,10 @@ main_func()
 		p7zip-full \
 		pinfo \
 		tree \
-		unifdef \
 		unrar \
 		${EMPTY}
+
+	# FIXME: unifdef depends on cpp, brings in cpp cpp-9 gcc-9-base libisl22 libmpc3. Do not install on server at all
 
 	apt -y install \
 		exfat-fuse \
