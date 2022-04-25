@@ -6,9 +6,13 @@ require_root_or_exit
 
 main_func()
 {
-	apt -y install language-pack-fr-base language-pack-ru-base
+	# Enable fr_CA.UTF-8 in /etc/locale.gen
+	locale-gen fr_CA.UTF-8
 
-	locale-gen --purge
+	# Enable ru_RU.UTF-8 in /etc/locale.gen
+	locale-gen ru_RU.UTF-8
+
+	dpkg-reconfigure -f noninteractive locales
 
 	true
 }

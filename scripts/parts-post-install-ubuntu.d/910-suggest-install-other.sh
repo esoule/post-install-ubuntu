@@ -23,6 +23,18 @@ main_func()
 	echo "If you want to install libreoffice, run this:"
 	echo ""
 	echo "    sudo apt install libreoffice"
+	echo ""
+	echo "If you want to install tshark, run this:"
+	echo ""
+	echo "    sudo apt install tshark"
+	echo ""
+	echo "If you want to install wireshark, run this:"
+	echo ""
+	echo "    sudo apt install wireshark"
+	echo ""
+	echo "If you want to enable firewall, run this:"
+	echo ""
+	echo "    sudo ufw enable"
 
 	printf '\n\n\n'
 

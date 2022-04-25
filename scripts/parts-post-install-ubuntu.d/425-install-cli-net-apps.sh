@@ -6,19 +6,15 @@ require_root_or_exit
 
 main_func()
 {
-	local ubuntu_rel=
+	EMPTY=""
 
-	ubuntu_rel="$( lsb_release --short --release )"
+	# NOTE: net-tools installs netstat
 
-	add-apt-repository --yes ppa:git-core/ppa
-
-	if ! [ "${ubuntu_rel}" = "20.04" ] ; then
-		add-apt-repository --yes ppa:esoule/esrepo
-	fi
-
-	add-apt-repository --yes ppa:esoule/coan
-
-	apt -y update
+	apt -y install \
+		net-tools \
+		tcpdump \
+		traceroute \
+		${EMPTY}
 
 	true
 }

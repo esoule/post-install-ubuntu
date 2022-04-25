@@ -6,6 +6,9 @@ require_root_or_exit
 
 main_func()
 {
+	# Enable en_CA.UTF-8 in /etc/locale.gen
+	locale-gen en_CA.UTF-8
+
 	dpkg-reconfigure -f noninteractive locales
 
 	update-locale LANG="en_CA.UTF-8" LANGUAGE="en_CA:en"

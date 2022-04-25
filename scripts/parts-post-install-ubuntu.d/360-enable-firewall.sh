@@ -9,7 +9,8 @@ main_func()
 	DRY_RUN="--dry-run"
 	DRY_RUN=""
 
-	sudo ufw ${DRY_RUN} enable
+	# NOTE: ask the user to enable it interactively
+	# sudo ufw ${DRY_RUN} enable
 
 	sudo ufw ${DRY_RUN} allow in OpenSSH comment "Added by post-install-ubuntu $( basename "$0" )"
 

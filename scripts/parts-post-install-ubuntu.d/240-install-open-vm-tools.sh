@@ -18,8 +18,9 @@ main_func()
 
 	apt -y install \
 		open-vm-tools \
-		open-vm-tools-desktop \
 		${EMPTY}
+
+	# FIXME: TODO: install open-vm-tools-desktop only on systems with GUI
 
 	true
 }

@@ -28,10 +28,10 @@ edit_unattended_upgrade_file()
 	cp "${orig_cfg}" "${tmp_cfg}"
 
 	sed -i \
-		-e 's|\s*//\s*Unattended-Upgrade::MinimalSteps "false";|Unattended-Upgrade::MinimalSteps "true";|' \
-		-e 's|\s*//\s*Unattended-Upgrade::Remove-Unused-Kernel-Packages "false";|Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";|' \
-		-e 's|\s*//\s*Unattended-Upgrade::Remove-Unused-Dependencies "false";|Unattended-Upgrade::Remove-Unused-Dependencies "true";|' \
-		-e 's|\s*//\s*Unattended-Upgrade::SyslogEnable "false";|Unattended-Upgrade::SyslogEnable "true";|' \
+		-e 's|\s*//\s*Unattended-Upgrade::MinimalSteps "[^"]\+";|Unattended-Upgrade::MinimalSteps "true";|' \
+		-e 's|\s*//\s*Unattended-Upgrade::Remove-Unused-Kernel-Packages "[^"]\+";|Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";|' \
+		-e 's|\s*//\s*Unattended-Upgrade::Remove-Unused-Dependencies "[^"]\+";|Unattended-Upgrade::Remove-Unused-Dependencies "true";|' \
+		-e 's|\s*//\s*Unattended-Upgrade::SyslogEnable "[^"]\+";|Unattended-Upgrade::SyslogEnable "true";|' \
 		"${tmp_cfg}"
 
 	diff -q "${orig_cfg}" "${tmp_cfg}" >/dev/null

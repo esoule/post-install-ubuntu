@@ -6,21 +6,20 @@ require_root_or_exit
 
 main_func()
 {
-	EMPTY=""
+	if [ -d /etc/local ] ; then
+		return 0
+	fi
 
-	# NOTE: Do not install thunderbird here. It is big, and not needed on servers
+	rm -rf /etc/local
+	install -d -m 0755 /etc/local
+	if [ -d /usr/local/etc ] ; then
+		cp -T -a /usr/local/etc /etc/local
+	fi
 
-	apt -y install \
-		numlockx \
-		${EMPTY}
+	rm -rf /usr/local/etc
+	ln -T -s /etc/local /usr/local/etc
 
-	apt -y install \
-		remmina \
-		remmina-plugin-rdp \
-		remmina-plugin-vnc \
-		${EMPTY}
-
-	true
+	return 0
 }
 
 source "./scripts/inc-sh/common-run-main.inc.sh"

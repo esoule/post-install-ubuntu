@@ -22,10 +22,13 @@ main_func()
 		p7zip \
 		p7zip-full \
 		pinfo \
+		screen \
+		tmux \
 		tree \
-		unifdef \
 		unrar \
 		${EMPTY}
+
+	# FIXME: unifdef depends on cpp, brings in cpp cpp-9 gcc-9-base libisl22 libmpc3. Do not install on server at all
 
 	apt -y install \
 		exfat-fuse \
@@ -36,19 +39,18 @@ main_func()
 		ntfs-3g \
 		${EMPTY}
 
-	apt -y install \
-		network-manager-openconnect \
-		openconnect \
-		${EMPTY}
-
-	apt -y install \
-		network-manager-vpnc \
-		vpnc \
-		${EMPTY}
-
-	apt -y install \
-		openfortivpn \
-		${EMPTY}
+	# FIXME: TODO: install VPN only on Kubuntu and other OSes with GUI
+	# openconnect brings in:
+	#  libopenconnect5 libpcsclite1 libstoken1 libtomcrypt1 libtommath1
+	#  openconnect vpnc-scripts
+	#
+	# network-manager-openconnect brings in 31 MB of this stuff:
+	#  dns-root-data dnsmasq-base libbluetooth3 libidn11 libjansson4
+	#  libmbim-glib4 libmbim-proxy libmm-glib0 libndp0 libnl-route-3-200 libnm0
+	#  libopenconnect5 libpcsclite1 libqmi-glib5 libqmi-proxy libstoken1
+	#  libteamdctl0 libtomcrypt1 libtommath1 modemmanager network-manager
+	#  network-manager-openconnect network-manager-pptp openconnect ppp
+	#  pptp-linux usb-modeswitch usb-modeswitch-data vpnc-scripts wpasupplicant
 
 	true
 }
