@@ -6,7 +6,11 @@ require_root_or_exit
 
 main_func()
 {
+	local ubuntu_rel=
+
 	EMPTY=""
+
+	ubuntu_rel="$( lsb_release --short --release )"
 
 	apt -y install \
 		htop \
@@ -24,10 +28,18 @@ main_func()
 
 	# FIXME: unifdef depends on cpp, brings in cpp cpp-9 gcc-9-base libisl22 libmpc3. Do not install on server at all
 
-	apt -y install \
-		exfat-fuse \
-		exfat-utils \
-		${EMPTY}
+	if [ "${ubuntu_rel}" = 18.04 ] || [ "${ubuntu_rel}" = 20.04 ] ; then
+		apt -y install \
+			exfat-fuse \
+			exfat-utils \
+			${EMPTY}
+	fi
+	if [ "${ubuntu_rel}" = 22.04 ] ; then
+		apt -y install \
+			exfat-fuse \
+			exfatprogs \
+			${EMPTY}
+	fi
 
 	apt -y install \
 		ntfs-3g \
