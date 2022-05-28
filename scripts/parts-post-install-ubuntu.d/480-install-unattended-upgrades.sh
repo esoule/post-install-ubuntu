@@ -25,6 +25,11 @@ edit_unattended_upgrade_file()
 	orig_cfg="${1}"
 	tmp_cfg="/tmp/$(basename "${1}" )"
 
+	if ! [ -e "${orig_cfg}" ] ; then
+		echo "WARNING: File ${orig_cfg} is missing ($0)"  >&2
+		return 0
+	fi
+
 	cp "${orig_cfg}" "${tmp_cfg}"
 
 	sed -i \
