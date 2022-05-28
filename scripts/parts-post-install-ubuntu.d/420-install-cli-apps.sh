@@ -8,12 +8,6 @@ main_func()
 {
 	EMPTY=""
 
-	apt -y install apt-file
-
-	# after apt-file installation
-	apt -y update
-	apt-file update
-
 	apt -y install \
 		htop \
 		lm-sensors \
