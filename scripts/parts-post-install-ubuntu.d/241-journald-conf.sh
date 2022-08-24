@@ -6,18 +6,12 @@ require_root_or_exit
 
 main_func()
 {
-	EMPTY=""
-
-	apt -y install \
-		unattended-upgrades \
-		${EMPTY}
-
-	edit_unattended_upgrade_file /etc/apt/apt.conf.d/50unattended-upgrades
+	edit_journald_config_file /etc/systemd/journald.conf
 
 	true
 }
 
-edit_unattended_upgrade_file()
+edit_journald_config_file()
 {
 	local orig_cfg=
 	local tmp_cfg=
@@ -33,10 +27,10 @@ edit_unattended_upgrade_file()
 	cp "${orig_cfg}" "${tmp_cfg}"
 
 	sed -i \
-		-e 's|\s*//\s*Unattended-Upgrade::MinimalSteps "[^"]\+";|Unattended-Upgrade::MinimalSteps "true";|' \
-		-e 's|\s*//\s*Unattended-Upgrade::Remove-Unused-Kernel-Packages "[^"]\+";|Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";|' \
-		-e 's|\s*//\s*Unattended-Upgrade::Remove-Unused-Dependencies "[^"]\+";|Unattended-Upgrade::Remove-Unused-Dependencies "true";|' \
-		-e 's|\s*//\s*Unattended-Upgrade::SyslogEnable "[^"]\+";|Unattended-Upgrade::SyslogEnable "true";|' \
+		-e 's/.*SystemMaxUse=.*/SystemMaxUse=2G/;' \
+		-e 's/.*SystemMaxFileSize=.*/SystemMaxFileSize=64M/;' \
+		-e 's/.*MaxRetentionSec=.*/MaxRetentionSec=183day/;' \
+		-e 's/.*MaxFileSec=.*/MaxFileSec=1month/;' \
 		"${tmp_cfg}"
 
 	diff -q "${orig_cfg}" "${tmp_cfg}" >/dev/null

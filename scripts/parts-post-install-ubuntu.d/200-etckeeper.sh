@@ -9,7 +9,6 @@ main_func()
 	EMPTY=""
 
 	apt -y install \
-		vim \
 		git \
 		git-man \
 		etckeeper \
