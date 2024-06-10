@@ -22,6 +22,7 @@ mtab.fuselock
 *.LOCK
 network/run
 adjtime
+udev/hwdb.bin
 lvm/cache
 lvm/archive
 X11/xdm/authdir/authfiles/*
@@ -60,7 +61,7 @@ DEADJOE
 # subdirectories here. Add them in the ".gitignore" file
 # in that subdirectory instead.
 #
-# NOTE! Please use 'git ls-files -i --exclude-standard'
+# NOTE! Please use 'git ls-files -i -c --exclude-per-directory=.gitignore'
 # command after changing this file, to see if there are
 # any tracked files which get ignored after the change.
 #
@@ -82,16 +83,16 @@ DEADJOE
 *.log
 *.log.*
 *.old
-*.org
 *.orig
+*.rej
+*.[Bb][Aa][Kk]
+*.[Ll][Oo][Gg]
+*.[Oo][Ll][Dd]
+*.[Oo][Rr][Ii][Gg]
+*.[Rr][Ee][Jj]
+
 
 # temporary files and directories
-tmp-*
-tmp.*
-tmp_*
-*.tmp
-*-tmp
-*_tmp
 
 # apt sources lists backup files
 apt/sources.list.d/*.save
