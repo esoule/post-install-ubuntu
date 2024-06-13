@@ -76,6 +76,4 @@ tmp_*
 *_tmp
 
 # Exception
-!files/system/etc/skel/.bashrc
-!files/system/root/.bashrc
 !files/user/.config/
