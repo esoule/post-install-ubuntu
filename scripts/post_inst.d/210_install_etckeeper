@@ -9,8 +9,6 @@ main_func()
 	EMPTY=""
 
 	apt-get -y install \
-		git \
-		git-man \
 		etckeeper \
 		${EMPTY}
 
