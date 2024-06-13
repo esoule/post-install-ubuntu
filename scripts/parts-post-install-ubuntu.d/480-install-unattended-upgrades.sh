@@ -8,7 +8,7 @@ main_func()
 {
 	EMPTY=""
 
-	apt -y install \
+	apt-get -y install \
 		unattended-upgrades \
 		${EMPTY}
 

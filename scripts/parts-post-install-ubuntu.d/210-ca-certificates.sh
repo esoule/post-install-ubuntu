@@ -8,7 +8,7 @@ main_func()
 {
 	EMPTY=""
 
-	apt -y install --only-upgrade \
+	apt-get -y install --only-upgrade \
 		ca-certificates \
 		${EMPTY}
 

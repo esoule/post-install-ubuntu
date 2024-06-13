@@ -16,7 +16,7 @@ main_func()
 		return 0
 	fi
 
-	apt -y install \
+	apt-get -y install \
 		open-vm-tools \
 		${EMPTY}
 

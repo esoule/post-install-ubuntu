@@ -12,7 +12,7 @@ main_func()
 
 	ubuntu_rel="$( lsb_release --short --release )"
 
-	apt -y install \
+	apt-get -y install \
 		htop \
 		lm-sensors \
 		mc \
@@ -29,19 +29,19 @@ main_func()
 	# FIXME: unifdef depends on cpp, brings in cpp cpp-9 gcc-9-base libisl22 libmpc3. Do not install on server at all
 
 	if [ "${ubuntu_rel}" = 18.04 ] || [ "${ubuntu_rel}" = 20.04 ] ; then
-		apt -y install \
+		apt-get -y install \
 			exfat-fuse \
 			exfat-utils \
 			${EMPTY}
 	fi
 	if [ "${ubuntu_rel}" = 22.04 ] ; then
-		apt -y install \
+		apt-get -y install \
 			exfat-fuse \
 			exfatprogs \
 			${EMPTY}
 	fi
 
-	apt -y install \
+	apt-get -y install \
 		ntfs-3g \
 		${EMPTY}
 
