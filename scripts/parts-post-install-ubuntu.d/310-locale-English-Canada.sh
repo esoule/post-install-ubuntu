@@ -16,7 +16,7 @@ main_func()
 	dpkg-reconfigure -f noninteractive locales
 
 	# Load apt files with translations
-	apt -y update
+	apt-get -y update
 
 	true
 }

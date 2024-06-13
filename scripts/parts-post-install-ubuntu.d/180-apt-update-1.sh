@@ -6,7 +6,7 @@ require_root_or_exit
 
 main_func()
 {
-	apt -y update
+	apt-get -y update
 
 	true
 }

@@ -6,7 +6,7 @@ require_root_or_exit
 
 main_func()
 {
-	apt -y install openssh-server
+	apt-get -y install openssh-server
 
 	systemctl --no-pager status ssh
 

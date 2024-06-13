@@ -10,7 +10,7 @@ main_func()
 
 	# NOTE: net-tools installs netstat
 
-	apt -y install \
+	apt-get -y install \
 		net-tools \
 		tcpdump \
 		traceroute \
