@@ -6,14 +6,16 @@ require_root_or_exit
 
 main_func()
 {
-	# Enable en_CA.UTF-8 in /etc/locale.gen
-	locale-gen en_CA.UTF-8
+	sed -i \
+		-e 's/^#\s*\(en_CA.UTF-8\)/\1/' \
+		-e 's/^#\s*\(en_GB.UTF-8\)/\1/' \
+		-e 's/^#\s*\(en_IE.UTF-8\)/\1/' \
+		-e 's/^#\s*\(en_US.UTF-8\)/\1/' \
+		-- /etc/locale.gen
 
 	dpkg-reconfigure -f noninteractive locales
 
 	update-locale LANG="en_CA.UTF-8" LANGUAGE="en_CA:en"
-
-	dpkg-reconfigure -f noninteractive locales
 
 	# Load apt files with translations
 	apt-get -y update
