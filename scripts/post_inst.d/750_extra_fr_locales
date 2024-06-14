@@ -6,11 +6,10 @@ require_root_or_exit
 
 main_func()
 {
-	# Enable fr_CA.UTF-8 in /etc/locale.gen
-	locale-gen fr_CA.UTF-8
-
-	# Enable ru_RU.UTF-8 in /etc/locale.gen
-	locale-gen ru_RU.UTF-8
+	sed -i \
+		-e 's/^#\s*\(fr_CA.UTF-8\)/\1/' \
+		-e 's/^#\s*\(fr_FR.UTF-8\)/\1/' \
+		-- /etc/locale.gen
 
 	dpkg-reconfigure -f noninteractive locales
 
