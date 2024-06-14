@@ -8,9 +8,8 @@ main_func()
 {
 	EMPTY=""
 
-	apt-get -y install \
-		unattended-upgrades \
-		${EMPTY}
+	apt-get -y install unattended-upgrades
+	apt-get -y install update-notifier-common
 
 	edit_unattended_upgrade_file /etc/apt/apt.conf.d/50unattended-upgrades
 
@@ -33,9 +32,6 @@ edit_unattended_upgrade_file()
 	cp "${orig_cfg}" "${tmp_cfg}"
 
 	sed -i \
-		-e 's|\s*//\s*Unattended-Upgrade::MinimalSteps "[^"]\+";|Unattended-Upgrade::MinimalSteps "true";|' \
-		-e 's|\s*//\s*Unattended-Upgrade::Remove-Unused-Kernel-Packages "[^"]\+";|Unattended-Upgrade::Remove-Unused-Kernel-Packages "true";|' \
-		-e 's|\s*//\s*Unattended-Upgrade::Remove-Unused-Dependencies "[^"]\+";|Unattended-Upgrade::Remove-Unused-Dependencies "true";|' \
 		-e 's|\s*//\s*Unattended-Upgrade::SyslogEnable "[^"]\+";|Unattended-Upgrade::SyslogEnable "true";|' \
 		"${tmp_cfg}"
 
