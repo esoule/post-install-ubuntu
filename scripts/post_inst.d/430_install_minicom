@@ -6,11 +6,7 @@ require_root_or_exit
 
 main_func()
 {
-	EMPTY=""
-
-	apt-get -y install \
-		minicom \
-		${EMPTY}
+	apt-get -y install minicom
 
 	install -v -m 0644 -o root -g root \
 		./files/system/etc/minicom/minirc.dfl \
