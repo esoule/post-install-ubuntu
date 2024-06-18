@@ -6,8 +6,6 @@ require_root_or_exit
 
 main_func()
 {
-	EMPTY=""
-
 	local virt_str=
 
 	virt_str="$( lspci | grep -i pci | grep -o -i '\(vmware\|virtualbox\)' | head -n 1 )"
@@ -16,9 +14,7 @@ main_func()
 		return 0
 	fi
 
-	apt-get -y install \
-		open-vm-tools \
-		${EMPTY}
+	apt-get -y install open-vm-tools
 
 	# FIXME: TODO: install open-vm-tools-desktop only on systems with GUI
 
