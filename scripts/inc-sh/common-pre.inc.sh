@@ -1,6 +1,6 @@
 #!/bin/bash
 set -u
-cd "${PROJECT_HOME}"
+cd "${PROJECT_HOME}" || exit 1
 
 DEBIAN_FRONTEND=noninteractive
 SYSTEMD_PAGER=
