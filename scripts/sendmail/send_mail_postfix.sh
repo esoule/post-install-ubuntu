@@ -20,7 +20,7 @@ SUBJ="Postfix test e-mail / Hello / Привет / Γεια σου / שלום / 
 
 # SUBJ="Postfix test / Hello / ${D}"
 
-SUBJ_B64="$( echo -n "${SUBJ}" | base64 -w 0 )"
+SUBJ_B64="$( printf '%s' "${SUBJ}" | base64 -w 0 )"
 
 sendmail -f logwatch -t <<__EOF__
 From: logwatch
