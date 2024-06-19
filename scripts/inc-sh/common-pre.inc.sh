@@ -8,7 +8,7 @@ export DEBIAN_FRONTEND SYSTEMD_PAGER
 
 require_root_or_exit()
 {
-	if [ "$( id -u )" != 0 ] ; then
+	if [ "$( id -u || true )" != 0 ] ; then
 		set +x
 		echo "ERROR: $0: Please run this script as root" >&2
 		exit 1
