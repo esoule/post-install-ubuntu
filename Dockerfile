@@ -7,6 +7,8 @@ RUN set -xe \
         apt-utils \
     && DEBIAN_FRONTEND=noninteractive TERM=dumb apt-get -y install --no-install-recommends --no-install-suggests \
         locales \
+    && DEBIAN_FRONTEND=noninteractive TERM=dumb apt-get -y install --no-install-recommends --no-install-suggests \
+        systemd \
     && rm -rf /var/lib/apt/lists/* \
     && true
 
